@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <meta charset = "UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <script>
+    var todolist = [{
+      title: '我今天吃八个馒头',
+      done: false
+    },{
+      title: '我今天学习jq',
+      done: false
+    }]
+    
+    //localStorage.setItem("todo",todolist);  //只是object  没有原来的对象内容
+    //1.本地存储里面只能存储字符串的数据各是  吧我们的数据对象转换为字符串格式  JSON.stringify()
+    localStorage.setItem("todo", JSON.stringify(todolist));
+    var data = localStorage.getItem("todo");
+    //由于取出来的时候data为字符串  所有不能用data[0].title取到title内容，所以将其转换为对象的个数
+    //2.获取本地存储的数据  我们需要吧里面的字符串数据转换为对象格式 JSON.parse()
+    data = JSON.parse(data);
+    console.log(data);
+    console.log(data[0].title);  //我今天吃八个馒头
+    
+  </script>
+</body>
+</html>

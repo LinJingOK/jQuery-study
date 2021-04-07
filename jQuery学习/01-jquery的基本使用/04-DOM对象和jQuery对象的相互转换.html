@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=vie, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <video src="mov.mp4" muted></video> 
+    <script>
+        //1.DOM对象转换为jQuery对象
+        //（1）我们已经使用原生js 获取过来DOM对象
+        var myvideo = document.querySelector('video');
+        //2.jQuery对象转换为DOM对象
+        myvideo.play();
+        $('video')[0].play();
+        $('video').get(0).play();
+    </script>
+</body>
+</html>

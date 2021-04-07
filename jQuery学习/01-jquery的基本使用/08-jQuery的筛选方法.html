@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="father"> father
+    <div class="son">son</div>
+  </div>
+
+  <div class="nav">
+    <p>p儿子</p>
+    <div>
+      <p>p孙子</p>
+    </div>
+  </div>
+  <script>
+    //注意一下都是方法 带括号
+    $(function(){
+      //1.父 .parent() 返回的是最近一级的父级元素  亲爸爸
+      $('.son').parent();
+
+      //2.子
+      //（1）亲儿子 chredildren（） ul>li
+      //$('.nav').children('p').css('color', "pink")
+      //所有的孩子 包括儿子和孙子  find（）
+      $('.nav').find('p').css('color', "red") 
+      //3.兄
+    })
+  </script>
+</body>
+</html>
