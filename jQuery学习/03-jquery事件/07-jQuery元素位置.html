@@ -5,6 +5,9 @@
   <title>Title</title>
   <script src="jquery.min.js"></script>
   <style>
+    body {
+      margin: 0;
+    }
     .father {
       width: 400px;
       height: 400px;
@@ -30,18 +33,19 @@
   </div>
   <script>
     //1.获取设置距离文档的位置（偏移） offset
-    console.log($(".father").offset());
-    console.log($(".father").offset().top);
+    console.log($(".son").offset());
+    console.log($(".son").offset().top); //自己的bug:由于为设置body的margin为0  所以left=108
     //改变偏移
-    // $(".son").offset({
-    //   top: 200,
-    //   left: 200
-    // });
+    $(".son").offset({
+      top: 200,
+      left: 200
+    });
     console.log($(".son").offset());
     console.log($(".son").offset().top);
     
     //2.获取距离带有定位父级位置（偏移） position 如果没有带有定位的父级  则以文档为准
-    // console.log($(".son").position())
+    //这个方法只能获取  不能设置偏移
+    console.log($(".son").position())
   </script>
 </body>
 </html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <meta charset = "UTF-8">
+  <title>Title</title>
+  <script src="jquery.min.js"></script>
+  <style>
+    div {
+      width: 80%;
+      height: 2000px;
+    }
+    .back {
+      position: fixed;
+      width: 50px;
+      height: 50px;
+      background-color: pink;
+      right: 30px;
+      bottom: 100px;
+      display: none;
+    }
+    .container {
+      width: 900px;
+      height: 500px;
+      background-color: skyblue;
+      margin: 400px auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="back">返回顶部</div>
+  <div class="container"></div>
+  <script>
+    $(function() {
+      // $(document).scrollTop(100); //直接设置数值，实现刷新就在某个位置上
+      //被卷去的头部 scrollTop()  被卷去的左侧 scrollLeft()
+      //页面滚动事件
+      var boxTop = $(".container").offset().top;
+      $(window).scroll(function () {
+        // console.log($(document).scrollTop());
+        if ($(document).scrollTop() >= boxTop) {
+          $(".back").fadeIn();  //显示
+        }else {
+          $(".back").fadeOut(); //隐藏
+        }
+      })
+      
+      //返回顶部
+      $(".back").click(function () {
+        // $(document).scrollTop(0);
+        //上面的方法可以实现  但是快速  需要缓慢回到顶部  加动画
+        $("body, html").stop().animate({
+          scrollTop: 0
+        });
+      })
+    })
+  </script>
+</body>
+</html>
